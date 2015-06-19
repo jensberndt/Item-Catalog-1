@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        {% block head %}
+        
+        {% endblock %}
+
+    </head>
+    <body>
+
+
+        {% block content %}
+            <div class="categories">
+                <h1>
+                    Categories
+                </h1>
+                <div class="category_list">
+                    <ul>
+                {% for category in categories %}
+                        <li>
+                            {{ category.name }}
+                        </li>
+                {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        {% endblock %}
+
+    </body>
+</html>

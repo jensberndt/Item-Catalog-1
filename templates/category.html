@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% block head %}
+    {{ super() }}
+    <title>
+        All The Items From {{ main_category.name }}
+    </title>
+{% endblock %}
+
+{% block content %}
+    <div class="categories">
+        <h1>
+            Categories
+        </h1>
+        <div class="category_list">
+            <ul>
+        {% for category in categories %}
+                <li>
+                    {{ category.name }}
+                </li>
+        {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="items">
+        <h1>
+            Items
+        </h1>
+        <div class="item_list">
+            <ul>
+        {% for item in items %}
+                <li>
+                    {{ item.name }}
+                </li>
+        {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
