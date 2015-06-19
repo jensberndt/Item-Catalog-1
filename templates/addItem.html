@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% block head %}
+    {{ super() }}
+    <title>
+        Add an Item to {{ category.name }}
+    </title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="form_area">
+        <h1>
+            Add an Item
+        </h1>
+        <div class="edit_form">
+            <form action="{{ url_for('addItemToCategory', category_id=category.id) }}" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" class="text_entry" name="name" value=" " />
+                
+                <label for="image_url">Image URL:</label>
+                <input type="text" class="text_entry" name="image_url" value=" " />
+                
+                <label for="description">Description:</label>
+                <textarea class="text_entry" name="description" rows="4" col="50"></textarea>
+
+                <button type="submit" class="submit_button" type="submit">
+                    Submit
+                </button>
+
+                <a href="{{ url_for('showItemsForCategory', category_id=category.id) }}'" >
+                    <button class="cancel_button">
+                        Cancel
+                    </button>
+                </a>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

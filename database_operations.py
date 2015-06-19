@@ -12,16 +12,13 @@ session = database_session()
 class DatabaseOperations:
 
     def getCategoryBy(self, category_id):
-        print category_id
-        print Category.id
-        print Category.id == category_id
         return session.query(Category).filter_by(id=category_id).one()
 
     def getListOfCategories(self):
         return session.query(Category).all()
 
     def getItemBy(self, item_id):
-        return session.query(Item, Category.name).filter_by(id=item_id).join(Category).one()
+        return session.query(Item, Category).filter_by(id=item_id).join(Category).one()
 
     def getItemsFor(self, category_id):
         return session.query(Item).filter_by(category_id=category_id).all()
@@ -34,8 +31,7 @@ class DatabaseOperations:
         session.commit()
         return
 
-    def deleteFromDatabase(self, item_id):
-        item_to_delete = session.query(Item).filter_by(id=item_id).one()
-        session.delete(item_to_delete)
+    def deleteFromDatabase(self, item):
+        session.delete(item)
         session.commit()
         return
