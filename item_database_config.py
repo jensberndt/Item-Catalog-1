@@ -11,6 +11,7 @@ class Category(Base):
     __tablename__ = 'categories'
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
+    image_url = Column(String, nullable=False)
 
 
 class Item(Base):
@@ -18,7 +19,8 @@ class Item(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     description = Column(String, nullable=False)
-    category_id = Column(Integer, ForeignKey('item_category.id'))
+    image_url = Column(String, nullable=False)
+    category_id = Column(Integer, ForeignKey('categories.id'))
     item_category = relationship(Category)
 
 engine = create_engine('sqlite:///item_catalog.db')

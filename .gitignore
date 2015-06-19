@@ -58,3 +58,6 @@ target/
 
 #Vagrant VM
 .vagrant/
+
+#Database Files
+*.db
