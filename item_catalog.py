@@ -31,9 +31,6 @@ def showItemsForCategory(category_id):
 def showItem(category_id, item_id):
     categories = db.getListOfCategories()
     item = db.getItemBy(item_id)
-
-    print item[0].name
-
     return render_template('item.html', categories=categories, item=item)
 
 
