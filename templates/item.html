@@ -2,12 +2,12 @@
 {% block head %}
     {{ super() }}
     <title>
-        Categories - All The Categories Made By You
+        Details For {{ item[0].name }} 
     </title>
 {% endblock %}
 
 {% block content %}
-  {{ super() }}
+    {{ super() }}
     <div class="items">
         <h1>
             {{ item[0].name }} 

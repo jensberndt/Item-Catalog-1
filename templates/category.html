@@ -7,21 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="categories">
-        <h1>
-            Categories
-        </h1>
-        <div class="category_list">
-            <ul>
-        {% for category in categories %}
-                <li>
-                    {{ category.name }}
-                </li>
-        {% endfor %}
-            </ul>
-        </div>
-    </div>
-
+    {{ super() }}
     <div class="items">
         <h1>
             Items
