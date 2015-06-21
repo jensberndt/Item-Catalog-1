@@ -61,3 +61,6 @@ target/
 
 #Database Files
 *.db
+
+#api keys
+client_secret.json
