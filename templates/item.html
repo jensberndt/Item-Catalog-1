@@ -12,10 +12,16 @@
         <h1>
             {{ item[0].name }} 
         </h1>
+            {% if item[0].creator_id == user_id %}
+                <a href="/category/{{main_category}}/editItem/{{item[0].id}}/"> Edit </a>
+                <br />
+                <a href="/category/{{main_category}}/deleteItem/{{item[0].id}}/">Delete</a>
+            {% endif %}
         <div class="item_list">
             <ul>
                 <li>
                     {{ item[0].description }}
+
                 </li>
                 <li>
                     {{ item[0].image_url }}

@@ -22,6 +22,16 @@ class Category(Base):
         }
 
 
+class User(Base):
+    __tablename__ = 'user'
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    email = Column(String, nullable=False)
+    picture = Column(String, nullable=False)
+
+    # We do not have an API end point to fetch users.
+
+
 class Item(Base):
     __tablename__ = 'items'
     id = Column(Integer, primary_key=True)
@@ -30,6 +40,8 @@ class Item(Base):
     image_url = Column(String, nullable=False)
     category_id = Column(Integer, ForeignKey('categories.id'))
     item_category = relationship(Category)
+    creator_id = Column(Integer, ForeignKey('user.id'))
+    item_creator = relationship(User)
 
     @property
     def serialize(self):
