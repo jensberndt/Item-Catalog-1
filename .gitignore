@@ -56,5 +56,14 @@ docs/_build/
 # PyBuilder
 target/
 
-#Vagrant Server
+#Vagrant VM
 .vagrant/
+
+#Database Files
+*.db
+
+#api keys
+client_secret.json
+
+#mac OSX files
+*.DS_Store
