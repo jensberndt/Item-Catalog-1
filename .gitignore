@@ -64,3 +64,6 @@ target/
 
 #api keys
 client_secret.json
+
+#mac OSX files
+*.DS_Store
