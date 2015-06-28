@@ -11,14 +11,12 @@ class Category(Base):
     __tablename__ = 'categories'
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-    image_url = Column(String, nullable=False)
 
     @property
     def serialize(self):
         return {
             'id': self.id,
             'name': self.name,
-            'image_url': self.image_url
         }
 
 

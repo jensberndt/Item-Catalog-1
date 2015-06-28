@@ -8,19 +8,27 @@
 
 {% block content %}
     {{ super() }}
+    
     <div class="items">
-        <h1>
-            Items
-        </h1>
+        <h2>
+            {{main_category.name}}
+        </h2>
         <div class="item_list">
             <ul>
         {% for item in items %}
                 <li>
-                    {{ item.name }}
+                    <a href="{{url_for('showItem', category_id=main_category.id, item_id=item.id)}}" >
+                        {{ item.name }}
+                    </a>
                 </li>
         {% endfor %}
             </ul>
         </div>
+    </div>
+        <div class="add_item_button">
+        <a href="{{ url_for('addItemToCategory', category_id=main_category.id) }}">
+        Add Item
+        </a>
     </div>
 
 {% endblock %}

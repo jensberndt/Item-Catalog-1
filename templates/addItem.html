@@ -9,32 +9,39 @@
 {% block content %}
 
     <div class="form_area">
-        <h1>
+        <h2>
             Add an Item
-        </h1>
+        </h2>
         <div class="edit_form">
-            <form action="{{ url_for('addItemToCategory', category_id=category.id) }}" method="POST">
+            <form action="{{ url_for('addItemToCategory', category_id=category.id) }}" enctype="multipart/form-data" method="POST">
                 <label for="name">Name:</label>
+                <br />
                 <input type="text" class="text_entry" name="name" value=" " />
-                
-                <label for="image_url">Image URL:</label>
-                <input type="text" class="text_entry" name="image_url" value=" " />
-                
+                <br /><br />
+                <label for="image">Upload Image:</label>
+                <br />
+                <input type="file" class="image_upload" name="file" value=" " />
+                <br /><br />
                 <label for="description">Description:</label>
-                <textarea class="text_entry" name="description" rows="4" col="50"></textarea>
+                <br />
+                <textarea class="text_entry" name="description" rows="10" col="1000" style="width: 300px; height: 150px;"></textarea>
                 <input type="hidden" name="state" value="{{STATE}}" />
+                <br />
+                <br />
 
 
                 <button type="submit" class="submit_button" type="submit">
                     Submit
                 </button>
+            </form>
+            <br />
 
-                <a href="{{ url_for('showItemsForCategory', category_id=category.id) }}'" >
+                <a href="{{ url_for('showItemsForCategory', category_id=category.id) }}" >
                     <button class="cancel_button">
                         Cancel
                     </button>
                 </a>
-            </form>
+
 
         </div>
     </div>
